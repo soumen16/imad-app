@@ -11,5 +11,5 @@ element.innerHTML = 'Hello This Is New Html Text';
 
 var img = document.getElementById('madi');
 img.onclick = function () {
-  img.style.marginLeft = '1200px'; 
+  img.style.marginLeft = '100px'; 
 };
