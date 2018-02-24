@@ -7,7 +7,7 @@ app.use(morgan('combined'));
 
 var articles = {
     
-    articleOne: {
+    'article-one': {
     title: 'Article one  | Soumen Baidya',
     heading: 'Article one',
     date: 'Feb 20, 2018',
@@ -23,7 +23,7 @@ var articles = {
     </p>`
     
 },
-    articleTwo: {
+    'article-two': {
     title: 'Article Two  | Soumen Baidya',
     heading: 'Article Two',
     date: 'Feb 24, 2018',
@@ -32,7 +32,7 @@ var articles = {
         This is the contest for my Two article.This is the contest for my Second article.
     </p>`
 },
-    articleThree: {
+    'article-three': {
         title: 'Article Three  | Soumen Baidya',
     heading: 'Article Three',
     date: 'Feb 30, 2018',
@@ -85,9 +85,14 @@ return htmlTemplate;
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/article-one', function (req, res) {
-  res.send(createTemplate(articleOne));
+app.get('/:articleName', function (req, res) {
+    // articleNmae == article-one
+    // articles[articleNmae] == {} content object for article one
+    var articleNmae = req.params.articleName;
+  res.send(createTemplate(articles[articleName]));
 });
+/*------------------------------
+---------------------------------------
 app.get('/article-two', function (req, res) {
   res.send(createTemplate(articleTwo));
 });
@@ -97,6 +102,10 @@ app.get('/article-three', function (req, res) {
 app.get('/article-three', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', '/ui/article-two/article-four.html'));
 });
+------------------
+
+--------------------
+*/
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
