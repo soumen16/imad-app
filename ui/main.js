@@ -11,5 +11,5 @@ element.innerHTML = 'Hello This Is New Html Text';
 
 var img = document.getElementById('img');
 img.onclick = function () {
-  img.style.marginLeft = '100px'; 
+  img.style.marginLeft = '120px'; 
 };
