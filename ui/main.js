@@ -9,7 +9,7 @@ element.innerHTML = 'Hello This Is New Html Text';
 
 //moving the image
 
-var img = document.getElementById('madi');
+var img = document.getElementById('img');
 img.onclick = function () {
   img.style.marginLeft = '100px'; 
 };
