@@ -20,17 +20,33 @@
 
 var button = document.getElementById('counter');
 
-var counter = 0;
+
 
 button.onclick = function() {
     //  Make a  request to the counter end point
-    
+    //creating a request Object
+    var request = new XMLHttpRequest();
     // Capture the response and store it in a variable
     
-    // render the variable in the correct span
+    request.onreadystatechange = function() {
+        if(request.readystate == XMLHttpRequest.Done) {
+            
+            //Take Some Action
+        
+            if(request.status == 200) {
+                var counter = requset.responseText;
+                var span = document.getElementById('count');
+                span.innerHTML = counter.toString();
+            
+            }
+        
+        }
+        // not done yet
+    };
     
-    counter = counter + 1;
-    var span = document.getElementById('count');
-    span.innerHTML = counter.toString();
+    // Makr  the Request
+    requset.open('GET', 'http://soumenbaidya123.imad.hasura-app.io/counter', true);
+    request.send(null);
+    
     };
 
