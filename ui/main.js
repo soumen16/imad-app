@@ -26,6 +26,7 @@ button.onclick = function() {
     //  Make a  request to the counter end point
     //creating a request Object
     var request = new XMLHttpRequest();
+    
     // Capture the response and store it in a variable
     
     request.onreadystatechange = function() {
