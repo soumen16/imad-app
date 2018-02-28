@@ -29,11 +29,11 @@ button.onclick = function() {
     // Capture the response and store it in a variable
     
     request.onreadystatechange = function() {
-        if(request.readystate == XMLHttpRequest.Done) {
+        if(request.readystate === XMLHttpRequest.Done) {
             
             //Take Some Action
         
-            if(request.status == 200) {
+            if(request.status === 200) {
                 var counter = requset.responseText;
                 var span = document.getElementById('count');
                 span.innerHTML = counter.toString();
