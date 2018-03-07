@@ -5,6 +5,19 @@ var crypto = require('crypto');
 var app = express();
 app.use(morgan('combined'));
 
+function hash(input, salt) {
+        // how do you create a hash?
+        
+        var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
+        return hashed.toString('hex');
+    }
+app.get('/hash/:input', function(req, res) {
+    var hashedString = hash(req.params.input, 'this-is-some-random-string');
+    res.send(hashedSting);
+    
+});
+
+
 var articles = {
     
     'article-one': {
@@ -114,17 +127,6 @@ app.get('/article-three', function (req, res) {
 
 --------------------
 */ 
-    function hash(input, salt) {
-        // how do you create a hash?
-        
-        var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
-        return hashed.toString('hex');
-    }
-app.get('/hash/:input', function(req, res) {
-    var hashedString = hash(req.params.input, 'this-is-some-random-string');
-    res.send(hashedSting);
-    
-});
 
 app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
